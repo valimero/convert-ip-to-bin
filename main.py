@@ -40,10 +40,22 @@ def diplayResult(ipAdress: str, ipAdressConverted: str, numberPossibleAddress: i
 
 argv = sys.argv
 
-if(len(argv) > 1):
+argc = len(argv)
+
+if(argc == 2):
 	inputIpAdress = argv[1]
+elif(argc == 3):
+	inputIpAdress = argv[1]
+
+
+
 else:
 	inputIpAdress = inputIpAdress()
+
+# if(len(argv) > 1):
+# 	inputIpAdress = argv[1]
+# else:
+# 	inputIpAdress = inputIpAdress()
 
 # Convert the subnet mask to binary
 ipAdressConverted = convertIpAdressToBin(inputIpAdress)
