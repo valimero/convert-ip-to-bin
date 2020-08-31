@@ -1,66 +1,68 @@
 import sys
 
-def convertIntToBin8(n):
-	return f'{n:08b}'
 
-def inputIpAdress():
-	return input("Ip adresss to convert:")
-
-def reverseBin(adressBin: str):
-	return adressBin.replace('0', 'b').replace('1', 'a').replace('a', '0').replace('b', '1')
-
-# Convert Ip adress to bin
-def convertIpAdressToBin(ipAddress: str):
-	# Split the address in a tab.
-	tabIp = inputIpAdress.split('.')
-
-	r = "";
-
-	for index in range(len(tabIp)):
-		r = r + str(convertIntToBin8(int(tabIp[index])))
-
-		if(index < len(tabIp) - 1):
-			r = r + '.'
-
-	return r
-
-# Return the number of possible adresses (without network and broadcast)
-def getNumberPossibleAddress(ipAdressConverted : str):
-	return 2 ** ipAdressConverted.count('0') - 2
+def convert_int_to_bin_8(n):
+    return f'{n:08b}'
 
 
-def diplayResult(ipAdress: str, ipAdressConverted: str, numberPossibleAddress: int):
-	print("-----------------------------------------------------------")
-	print("Subnet mask : \t\t" + ipAdress)
-	print("Subnet mask bin: \t" + ipAdressConverted)
-	print()
-	print("Number of available addresses: " + str(numberPossibleAddress))
-	print("-----------------------------------------------------------")
+def func_input_ip_address():
+    return input("Ip address to convert:")
+
+
+def reverse_bin(address_bin: str):
+    return address_bin.replace('0', 'b').replace('1', 'a').replace('a', '0').replace('b', '1')
+
+
+# Convert Ip address to bin
+def convert_ip_address_to_bin(ip_address: str):
+    # Split the address in a tab.
+    tab_ip = ip_address.split('.')
+
+    r = ""
+
+    for index in range(len(tab_ip)):
+        r = r + str(convert_int_to_bin_8(int(tab_ip[index])))
+
+        if index < len(tab_ip) - 1:
+            r = r + '.'
+
+    return r
+
+
+# Return the number of possible addresses (without network and broadcast)
+def get_number_possible_address(ip_address_converted: str):
+    return 2 ** ip_address_converted.count('0') - 2
+
+
+def display_result(ip_address: str, ip_address_converted: str, number_possible_address: int):
+    print("-----------------------------------------------------------")
+    print("Subnet mask : \t\t" + ip_address)
+    print("Subnet mask bin: \t" + ip_address_converted)
+    print()
+    print("Number of available addresses: " + str(number_possible_address))
+    print("-----------------------------------------------------------")
 
 
 argv = sys.argv
 
 argc = len(argv)
 
-if(argc == 2):
-	inputIpAdress = argv[1]
-elif(argc == 3):
-	inputIpAdress = argv[1]
-
-
-
+if argc == 2:
+    input_ip_address = argv[1]
+elif argc == 3:
+    input_ip_address = argv[1]
 else:
-	inputIpAdress = inputIpAdress()
+    input_ip_address = func_input_ip_address()
 
 # if(len(argv) > 1):
-# 	inputIpAdress = argv[1]
+# 	func_input_ip_address = argv[1]
 # else:
-# 	inputIpAdress = inputIpAdress()
+# 	func_input_ip_address = func_input_ip_address()
 
 # Convert the subnet mask to binary
-ipAdressConverted = convertIpAdressToBin(inputIpAdress)
+ip_address_converted = convert_ip_address_to_bin(input_ip_address)
 
 # Get the number of available addresses
-numberPossibleAddress = getNumberPossibleAddress(ipAdressConverted)
+numberPossibleAddress = get_number_possible_address(ip_address_converted)
 
-diplayResult(inputIpAdress, ipAdressConverted, numberPossibleAddress)
+display_result(input_ip_address, ip_address_converted, numberPossibleAddress)
