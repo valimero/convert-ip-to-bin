@@ -23,8 +23,8 @@ def convertIpAdressToBin(ipAddress: str):
 
 
 def diplayResult(ipAdress: str, ipAdressConverted: str):
-	print("------------------------------\n Ip address : \t" + ipAdress + "\n Result: \t" + ipAdressConverted)
-	print("------------------------------")
+	print("---------------------------------------------------\n Ip address : \t" + ipAdress + "\n Result: \t" + ipAdressConverted)
+	print("---------------------------------------------------")
 
 
 argv = sys.argv
