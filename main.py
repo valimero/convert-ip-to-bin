@@ -24,6 +24,7 @@ def convertIpAdressToBin(ipAddress: str):
 
 	return r
 
+# Return the number of possible adresses (without network and broadcast)
 def getNumberPossibleAddress(ipAdressConverted : str):
 	return 2 ** ipAdressConverted.count('0') - 2
 
